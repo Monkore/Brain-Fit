@@ -1,0 +1,31 @@
+#:kivy 2.3.0
+
+<EmergencyScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "48dp"
+        spacing: "48dp"
+
+        MDLabel:
+            text: "EMERGENCY"
+            font_style: "H2"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 0, 0, 1 # Red
+            size_hint_y: 0.2
+
+        MDFillRoundFlatButton:
+            text: "CALL CONTACT"
+            font_size: "48sp"
+            md_bg_color: 0.9, 0.1, 0.1, 1 # Bright Red
+            size_hint_x: 1
+            size_hint_y: 0.4
+            on_release: root.call_contact()
+            
+        MDRoundFlatButton:
+            text: "Go Back"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.go_back()

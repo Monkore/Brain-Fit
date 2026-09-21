@@ -1,0 +1,13 @@
+<CatalogScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        
+        MDTopAppBar:
+            title: "Activity Catalog"
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'dashboard')]]
+            elevation: 2
+            
+        ScrollView:
+            MDList:
+                id: catalog_list
+                padding: "16dp"

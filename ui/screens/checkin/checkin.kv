@@ -1,0 +1,46 @@
+#:kivy 2.3.0
+
+<CheckinScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "48dp"
+
+        MDLabel:
+            text: root.question_text
+            font_style: "H3"
+            halign: "center"
+            size_hint_y: 0.3
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "24dp"
+            size_hint_y: 0.4
+            
+            MDLabel:
+                text: str(int(slider.value)) if slider.max == 10 else f"{int(slider.value)} hrs"
+                font_style: "H2"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+            MDSlider:
+                id: slider
+                min: 1
+                max: 10
+                value: 5
+                step: 1
+                color: app.theme_cls.primary_color
+                hint: False
+                
+        MDFillRoundFlatButton:
+            text: "Next"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5}
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.save_answer_and_next(slider.value)
+            
+        Widget:
+            size_hint_y: 0.3

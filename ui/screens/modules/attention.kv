@@ -1,0 +1,40 @@
+#:kivy 2.3.0
+
+<AttentionScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.1
+            MDLabel:
+                text: f"Score: {root.score}"
+                font_style: "H5"
+            MDLabel:
+                text: f"Left: {root.trials_left}"
+                font_style: "H5"
+                halign: "right"
+                
+        MDLabel:
+            text: "Tap ONLY when you see 'X'"
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDLabel:
+            text: root.current_letter
+            font_style: "H1"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+            size_hint_y: 0.4
+
+        MDFillRoundFlatButton:
+            id: btn_tap
+            text: "TAP HERE"
+            font_size: "48sp"
+            size_hint_x: 1
+            size_hint_y: 0.4
+            on_release: root.on_tap()

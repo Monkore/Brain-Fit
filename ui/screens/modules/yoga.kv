@@ -1,0 +1,39 @@
+#:kivy 2.3.0
+
+<YogaScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.1
+            MDLabel:
+                text: f"Posture Score: {root.score}"
+                font_style: "H5"
+            MDLabel:
+                text: f"Time: {root.time_left}s"
+                font_style: "H5"
+                halign: "right"
+                
+        MDLabel:
+            text: root.instruction
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.1
+
+        # Camera Viewport
+        Image:
+            id: cam_image
+            size_hint_y: 0.6
+            allow_stretch: True
+            keep_ratio: True
+
+        MDRoundFlatButton:
+            text: "End Session Early"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.end_early()

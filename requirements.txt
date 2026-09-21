@@ -1,0 +1,11 @@
+kivy
+kivymd
+numpy
+pandas
+scikit-learn
+opencv-python
+mediapipe
+vosk
+pyaudio
+pyttsx3
+deep-translator

@@ -1,0 +1,35 @@
+#:kivy 2.3.0
+
+<AudioTemplateScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: root.activity_name
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDLabel:
+            text: root.activity_description
+            font_style: "Body1"
+            halign: "center"
+            size_hint_y: 0.2
+            
+        MDFloatLayout:
+            size_hint_y: 0.5
+            MDLabel:
+                text: "♫ Audio Playing..."
+                font_style: "H2"
+                halign: "center"
+                valign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: f"{root.time_left // 60}:{root.time_left % 60:02d}"
+            font_style: "H3"
+            halign: "center"
+            size_hint_y: 0.2

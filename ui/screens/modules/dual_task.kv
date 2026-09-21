@@ -1,0 +1,61 @@
+#:kivy 2.3.0
+
+<DualTaskScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.1
+            MDLabel:
+                text: f"Score: {root.score}"
+                font_style: "H5"
+            MDLabel:
+                text: f"Time: {root.time_left}s"
+                font_style: "H5"
+                halign: "right"
+                
+        MDLabel:
+            text: root.instruction
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.2
+
+        MDFillRoundFlatButton:
+            id: btn_tap
+            text: "TAP WHEN RED"
+            font_size: "48sp"
+            size_hint_x: 1
+            size_hint_y: 0.5
+            opacity: 1
+            on_release: root.on_tap()
+
+        MDGridLayout:
+            id: answer_grid
+            cols: 1
+            spacing: "24dp"
+            size_hint_y: 0.5
+            opacity: 0
+            
+            MDFillRoundFlatButton:
+                id: ans_btn_1
+                text: ""
+                font_size: "48sp"
+                size_hint_x: 1
+                on_release: root.check_answer(self.text)
+                
+            MDFillRoundFlatButton:
+                id: ans_btn_2
+                text: ""
+                font_size: "48sp"
+                size_hint_x: 1
+                on_release: root.check_answer(self.text)
+                
+            MDFillRoundFlatButton:
+                id: ans_btn_3
+                text: ""
+                font_size: "48sp"
+                size_hint_x: 1
+                on_release: root.check_answer(self.text)

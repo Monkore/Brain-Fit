@@ -1,0 +1,42 @@
+#:kivy 2.3.0
+
+<SettingsScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: "Settings"
+            font_style: "H3"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: app.touch_target
+            
+            MDLabel:
+                text: "Language:"
+                font_style: "H5"
+                
+            MDRoundFlatButton:
+                text: "English"
+                font_size: app.custom_fonts["button"]
+                
+            MDRoundFlatButton:
+                text: "Hindi"
+                font_size: app.custom_fonts["button"]
+                
+        Widget:
+            size_hint_y: 1
+
+        MDFillRoundFlatButton:
+            text: "Save & Back"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.save_settings()

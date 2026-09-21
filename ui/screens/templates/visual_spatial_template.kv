@@ -1,0 +1,72 @@
+<VisualSpatialTemplateScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+        
+        MDTopAppBar:
+            title: root.activity_name
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'dashboard')]]
+            elevation: 2
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.1
+            
+            MDLabel:
+                text: "Score: " + str(root.score)
+                font_style: "Subtitle1"
+                
+            MDLabel:
+                text: "Time: " + str(root.time_left) + "s"
+                font_style: "Subtitle1"
+                halign: "right"
+                
+        MDLabel:
+            text: root.activity_description
+            font_style: "Body1"
+            size_hint_y: 0.1
+            halign: "center"
+            
+        MDLabel:
+            text: root.feedback_text
+            font_style: "H6"
+            theme_text_color: "Primary"
+            halign: "center"
+            size_hint_y: 0.1
+
+        # The Visual Canvas Area
+        MDFloatLayout:
+            size_hint_y: 0.4
+            canvas.before:
+                Color:
+                    rgba: 0.9, 0.9, 0.9, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10, 10, 10, 10]
+            
+            # The Target Shape to Rotate
+            BoxLayout:
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: None, None
+                size: "100dp", "100dp"
+                canvas.before:
+                    PushMatrix
+                    Rotate:
+                        angle: root.target_rotation
+                        origin: self.center
+                    Color:
+                        rgba: 0.2, 0.6, 0.8, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                canvas.after:
+                    PopMatrix
+
+        # Options Grid
+        GridLayout:
+            id: options_grid
+            cols: 2
+            spacing: "16dp"
+            size_hint_y: 0.3

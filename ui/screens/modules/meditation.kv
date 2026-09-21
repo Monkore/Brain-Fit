@@ -1,0 +1,36 @@
+#:kivy 2.3.0
+
+<MeditationScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "48dp"
+        spacing: "48dp"
+
+        MDLabel:
+            text: root.instruction
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.2
+
+        MDLabel:
+            text: f"{int(root.time_left // 60):02d}:{int(root.time_left % 60):02d}"
+            font_style: "H1"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+            size_hint_y: 0.4
+
+        MDFillRoundFlatButton:
+            text: "PAUSE" if root.is_active else "START"
+            font_size: "48sp"
+            size_hint_x: 1
+            size_hint_y: 0.3
+            on_release: root.toggle_meditation()
+
+        MDRoundFlatButton:
+            text: "End Session Early"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.end_early()

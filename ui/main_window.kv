@@ -1,0 +1,97 @@
+#:kivy 2.3.0
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import CognitiveTemplateScreen ui.screens.templates.cognitive_template.CognitiveTemplateScreen
+#:import PhysicalTemplateScreen ui.screens.templates.physical_template.PhysicalTemplateScreen
+#:import AudioTemplateScreen ui.screens.templates.audio_template.AudioTemplateScreen
+#:import CatalogScreen ui.screens.catalog.catalog_screen.CatalogScreen
+#:import VisualSpatialTemplateScreen ui.screens.templates.visual_spatial_template.VisualSpatialTemplateScreen
+
+<MainWindow>:
+    id: screen_manager
+    transition: NoTransition()
+    
+    DashboardScreen:
+        name: "dashboard"
+        
+    OnboardingScreen:
+        name: "onboarding"
+
+    CheckinScreen:
+        name: "checkin"
+
+    EmergencyScreen:
+        name: "emergency"
+
+    SettingsScreen:
+        name: "settings"
+
+    CognitiveTemplateScreen:
+        name: "cognitive_template"
+    
+    PhysicalTemplateScreen:
+        name: "physical_template"
+        
+    AudioTemplateScreen:
+        name: "audio_template"
+
+    CatalogScreen:
+        name: "catalog"
+
+    VisualSpatialTemplateScreen:
+        name: "visual_spatial_template"
+
+<DashboardScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "12dp"
+
+        MDLabel:
+            id: points_label
+            text: "Total Points: 0"
+            font_style: "H6"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            
+        MDLabel:
+            id: streak_label
+            text: "Current Streak: 0 days"
+            font_style: "H6"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            
+        Widget:
+            size_hint_y: 0.1
+            
+        MDFillRoundFlatButton:
+            text: "Start Personalized Session"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: app.start_dynamic_session()
+            
+        MDRoundFlatButton:
+            text: "View Activity Catalog"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: app.root.current = "catalog" # Future feature
+            
+        MDFillRoundFlatButton:
+            text: "Emergency Contact"
+            font_size: app.custom_fonts["button"]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: app.root.current = "emergency"
+
+
+
+
+
+

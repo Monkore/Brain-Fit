@@ -1,0 +1,99 @@
+#:kivy 2.3.0
+
+<MemoryScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: root.instruction_text
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.2
+
+        # Memorize Phase UI
+        MDBoxLayout:
+            id: memorize_grid
+            orientation: "vertical"
+            spacing: "16dp"
+            size_hint_y: 0.6
+            opacity: 1
+            
+            MDLabel:
+                id: word_1
+                text: ""
+                font_style: "H2"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                
+            MDLabel:
+                id: word_2
+                text: ""
+                font_style: "H2"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+                
+            MDLabel:
+                id: word_3
+                text: ""
+                font_style: "H2"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_color
+
+        # Recall Phase UI (Overlaid or toggled via opacity)
+        MDGridLayout:
+            id: recall_grid
+            cols: 2
+            spacing: "16dp"
+            size_hint_y: 0.6
+            opacity: 0
+            
+            MDFillRoundFlatButton:
+                id: recall_btn_1
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+            MDFillRoundFlatButton:
+                id: recall_btn_2
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+            MDFillRoundFlatButton:
+                id: recall_btn_3
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+            MDFillRoundFlatButton:
+                id: recall_btn_4
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+            MDFillRoundFlatButton:
+                id: recall_btn_5
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+            MDFillRoundFlatButton:
+                id: recall_btn_6
+                text: ""
+                font_size: "32sp"
+                size_hint: 1, 1
+                on_release: root.toggle_word(self)
+
+        MDFillRoundFlatButton:
+            id: btn_next
+            text: "I'm Ready"
+            font_size: app.custom_fonts["button"]
+            size_hint_x: 1
+            size_hint_y: None
+            height: app.touch_target
+            on_release: root.on_next()

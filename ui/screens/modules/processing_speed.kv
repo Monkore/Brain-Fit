@@ -1,0 +1,65 @@
+#:kivy 2.3.0
+
+<ProcessingSpeedScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.1
+            MDLabel:
+                text: f"Score: {root.score}"
+                font_style: "H5"
+            MDLabel:
+                text: f"Time: {root.time_left}s"
+                font_style: "H5"
+                halign: "right"
+                
+        MDLabel:
+            text: "Find this symbol:"
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDLabel:
+            text: root.target_symbol
+            font_style: "H1"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+            size_hint_y: 0.3
+
+        MDGridLayout:
+            cols: 2
+            spacing: "24dp"
+            size_hint_y: 0.5
+            
+            MDFillRoundFlatButton:
+                id: btn_1
+                text: ""
+                font_size: "48sp"
+                size_hint: 1, 1
+                on_release: root.check_match(self.text)
+                
+            MDFillRoundFlatButton:
+                id: btn_2
+                text: ""
+                font_size: "48sp"
+                size_hint: 1, 1
+                on_release: root.check_match(self.text)
+                
+            MDFillRoundFlatButton:
+                id: btn_3
+                text: ""
+                font_size: "48sp"
+                size_hint: 1, 1
+                on_release: root.check_match(self.text)
+                
+            MDFillRoundFlatButton:
+                id: btn_4
+                text: ""
+                font_size: "48sp"
+                size_hint: 1, 1
+                on_release: root.check_match(self.text)

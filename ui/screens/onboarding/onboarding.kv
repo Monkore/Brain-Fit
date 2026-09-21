@@ -1,0 +1,22 @@
+#:kivy 2.3.0
+
+<OnboardingScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "32dp"
+
+        MDLabel:
+            text: root.question_text
+            font_style: "H3"
+            halign: "center"
+            size_hint_y: 0.3
+
+        MDBoxLayout:
+            id: options_container
+            orientation: "vertical"
+            spacing: "24dp"
+            size_hint_y: 0.7
+            
+        Widget:
+            size_hint_y: 0.1
